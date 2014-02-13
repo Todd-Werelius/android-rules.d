@@ -4,20 +4,24 @@ Debugging Android Devices on Linux (Specifically Ubuntu 12)
 To get your devices recognized by your unix distro you may need to authorize the device.  This file and mini-tutorial works for ubuntu, other distros and your mileage may vary ... 
 
 1. If you already have a /etc/udev/rules.d/51-android.rules BACK IT UP
-2. As ROOT (sudo) save the contents to this file /etc/udev/rules.d/51-android.rules 
-3. sudo chmod a+r /etc/udev/rules.d/51-android.rules to allow read permission for all accounts 
-4. Reboot
+2. As ROOT (sudo) save the contents below to a file at /etc/udev/rules.d/51-android.rules 
+3. Open a terminal 
+4. sudo chmod a+r /etc/udev/rules.d/51-android.rules to allow read permission for all accounts 
+5. reboot
 
-You can also try to restart the udev server, kill and restart the adb server, then unplug and re-plug the usb cable but it's just easier to let the system handle it for you with a reeboot
+You can also try to restart the udev server, kill and restart the adb server, then unplug and re-plug the usb cable but it's just easier to let the system handle it for you with a reboot
  
-Other distro's may require different files and internal commands but this should work on most systems
+NOTES:
+  Other distro's may require different files and internal commands but this should work on most systems
+  On VirtualBox don't forget to attach the USB device (phone etc) at the menu else linux won't see it
 
 
 Walk through at http://mofodv.com/debugging-android-devices-on-linux including how to add a missing mfg
 ===============
 
-FILE CONTENTS 
-
+51-android.rules contents
+---------------
+```
 #Acer
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0502", MODE="0660", GROUP="plugdev" 
 
@@ -122,3 +126,4 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="0930", MODE="0660", GROUP="plugdev"
 
 #ZTE
 SUBSYSTEM=="usb", ATTRS{idVendor}=="19d2", MODE="0660", GROUP="plugdev" 
+```
