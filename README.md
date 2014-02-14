@@ -16,8 +16,7 @@ NOTES:
   On VirtualBox don't forget to attach the USB device (phone etc) at the menu else linux won't see it
 
 
-Walk through at http://mofodv.com/debugging-android-devices-on-linux including how to add a missing mfg
-===============
+http://mofodv.com/linux-ignores-android-devices/ if you need more info
 
 51-android.rules contents
 ---------------
